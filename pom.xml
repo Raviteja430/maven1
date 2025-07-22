@@ -86,40 +86,40 @@
 			<version>3.1.0</version>
 		</dependency>
 		<!-- http://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
-OBOBOBOBOBOB		<dependency>
-OB			<groupId>org.springframework</groupId>
-OB			<artifactId>spring-jdbc</artifactId>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
 			<version>${spring.version}</version>
-OBOB		</dependency>
-OB  </dependencies>
+		</dependency>
+  </dependencies>
   
-OBOBOBOB  <distributionManagement>
-OB       <repository>
+  <distributionManagement>
+       <repository>
          <id>internal.repo</id>
-OB         <name>Internal repo</name>
+         <name>Internal repo</name>
          <url>file:///c:\</url>
        </repository>
    </distributionManagement>
 
-OB  <build>
+  <build>
     <plugins>
        <plugin>
          <groupId>org.apache.maven.plugins</groupId>
          <artifactId>maven-war-plugin</artifactId>
          <version>3.3.2</version>
-OB      </plugin>
+      </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.7.0</version>
-OBOBOB        <configuration>
-OBOB          <source>1.8</source>
+        <configuration>
+          <source>1.8</source>
           <target>1.8</target>
-OBOBOBOBOBOBOB        </configuration>
-OB      </plugin>
-OB        <plugin>
+        </configuration>
+      </plugin>
+        <plugin>
           <groupId>org.apache.tomcat.maven</groupId>
-OBOB          <artifactId>tomcat7-maven-plugin</artifactId>
+          <artifactId>tomcat7-maven-plugin</artifactId>
           <version>2.2</version>
          <configuration>
            <url>http://localhost:8080/manager/text</url>
@@ -133,18 +133,18 @@
   </build>
   <profiles>
     <profile>
-OBOBOBOBOBOBOBOB      <id>sonar-coverage</id>
+      <id>sonar-coverage</id>
       <activation>
-OB        <activeByDefault>true</activeByDefault>
+        <activeByDefault>true</activeByDefault>
       </activation>
-OB      <build>
+      <build>
         <pluginManagement>
           <plugins>
             <plugin>
-OB              <groupId>org.jacoco</groupId>
+              <groupId>org.jacoco</groupId>
               <artifactId>jacoco-maven-plugin</artifactId>
               <version>0.7.8</version>
-OB            </plugin>
+            </plugin>
           </plugins>
         </pluginManagement>
         <plugins>
@@ -154,31 +154,30 @@
             <configuration>
               <append>true</append>
             </configuration>
-OBOBOBOBOBOBOBOB            <executions>
-OB              <execution>
-OB                <id>agent-for-ut</id>
-OB                <goals>
+            <executions>
+              <execution>
+                <id>agent-for-ut</id>
+                <goals>
                   <goal>prepare-agent</goal>
                 </goals>
-OB              </execution>
+              </execution>
               <execution>
                 <id>agent-for-it</id>
                 <goals>
-OB                  <goal>prepare-agent-integration</goal>
+                  <goal>prepare-agent-integration</goal>
                 </goals>
               </execution>
-OBOBOB              <execution>
+              <execution>
                 <id>jacoco-site</id>
                 <phase>verify</phase>
                 <goals>
-OB                  <goal>report</goal>
+                  <goal>report</goal>
                 </goals>
               </execution>
             </executions>
-OB          </plugin>
+          </plugin>
         </plugins>
       </build>
     </profile>
   </profiles>
-OB</project>
-
+</project>
